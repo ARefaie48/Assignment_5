@@ -1,0 +1,38 @@
+Musician(
+  musician_id PK,
+  name,
+  street,
+  city,
+  phone
+)
+
+Instrument(
+  instrument_name PK,
+  musical_key
+)
+
+Musician_Instrument(
+  musician_id FK,
+  instrument_name FK,
+  PK (musician_id, instrument_name)
+)
+
+Album(
+  album_id PK,
+  title UNIQUE,
+  copyright_date,
+  producer_id FK → Musician
+)
+
+Song(
+  song_id PK,
+  title UNIQUE,
+  author,
+  album_id FK → Album
+)
+
+Song_Musician(
+  song_id FK,
+  musician_id FK,
+  PK (song_id, musician_id)
+)
